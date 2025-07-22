@@ -17,6 +17,12 @@ nextButton.onclick = () => {
 
     active = active + 1 > lastPosition ? 0 : active + 1 
     items[active].classList.add('active')
+
+    let dotsOld = indicator.querySelector('ul li.active');
+    dotsOld.classList.remove('active');
+    dots[active].classList.add('active')
+
+    indicator.querySelector('.number').innerHTML = "0" + (active + 1); 
 }
 
 prevButton.onclick = () => {
@@ -24,5 +30,10 @@ prevButton.onclick = () => {
     itemOld.classList.remove('active'); 
 
     active = active - 1 < firstPosition ? lastPosition : active - 1 
-    items[active].classList.add('active')    
+    items[active].classList.add('active')
+    
+    let dotsOld = indicator.querySelector('ul li.active');
+    dotsOld.classList.remove('active');
+    dots[active].classList.add('active');
+    indicator.querySelector('.number').innerHTML = "0" + (active + 1);
 }
